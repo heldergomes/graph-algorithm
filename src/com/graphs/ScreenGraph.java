@@ -32,6 +32,19 @@ public class ScreenGraph {
         return false;
     }
 
+    public boolean isTest() {
+        Integer decision = JOptionPane.showConfirmDialog(null,
+                "Are you testing ?",
+                "Testing ?",JOptionPane.YES_NO_OPTION);
+        switch (decision){
+            case 0:
+                return true;
+            case 1:
+                return false;
+        }
+        return false;
+    }
+
     public void showGraph(Graph graph) {
         Object[] options = {"OK"};
         StringBuilder response = graph.showString();
