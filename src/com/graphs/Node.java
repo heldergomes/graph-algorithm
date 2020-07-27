@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Node {
 
-    Integer vertice;
-    Node nextNode;
+    public Integer vertice;
+    public Node nextNode;
 
     Node(){}
 

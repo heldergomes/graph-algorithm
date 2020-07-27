@@ -19,6 +19,7 @@ public class Main {
             graph.adjacencyList[2] = mockNode.addNode(5);
             mockNode = new Node();
             graph.adjacencyList[5] = mockNode.addNode(3);
+            graph.edges = 8;
         }else {
             Integer numberOfVertices = screenGraph.showNodeScreen();
             graph = new Graph(numberOfVertices);
@@ -30,10 +31,20 @@ public class Main {
                     Integer edgeSelected = screenGraph.showEdgeScreen(index, possibleEdges);
                     graph.adjacencyList[index] = mainNode.addNode(edgeSelected);
                     possibleEdges.deletePossibleNode(edgeSelected);
+                    graph.edges++;
                 } while (screenGraph.isFinish(index));
                 possibleEdges.buildPossibleEdges(graph.vertice);
             }
-            screenGraph.showGraph(graph);
         }
+        StringBuilder graphPrint = screenGraph.showGraph(graph);
+        String algorithm = screenGraph.showAlgorithmScreen(graphPrint);
+        StringBuilder log = new StringBuilder();
+        switch (algorithm){
+            case "deph-first-search":
+                DepthFirstSearch depthFirstSearch = new DepthFirstSearch(graph, 0);
+                log = depthFirstSearch.search();
+        }
+        log.append(graphPrint);
+        screenGraph.showResultAlgorthm(log);
     }
 }
