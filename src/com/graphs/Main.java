@@ -43,6 +43,14 @@ public class Main {
             case "deph-first-search":
                 DepthFirstSearch depthFirstSearch = new DepthFirstSearch(graph, 0);
                 log = depthFirstSearch.search();
+                break;
+            case "breath-first-search":
+                BreathFirstSearch breathFirstSearch = new BreathFirstSearch(graph);
+                if (breathFirstSearch.search(0, 6)) {
+                    log.append("Vertice found ! \n\n");
+                }else{
+                    log.append("Vertice not found ! \n\n");
+                }
         }
         log.append(graphPrint);
         screenGraph.showResultAlgorthm(log);

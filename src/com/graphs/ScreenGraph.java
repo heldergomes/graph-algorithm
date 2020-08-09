@@ -62,7 +62,7 @@ public class ScreenGraph {
     }
 
     public String showAlgorithmScreen(StringBuilder graphPrint){
-        String[] algorithm = {"deph-first-search"};
+        String[] algorithm = {"deph-first-search", "breath-first-search"};
         Object selectedValue = JOptionPane.showInputDialog(null,
                 graphPrint + "Select algorithm: ", "Algorithms",
                 JOptionPane.INFORMATION_MESSAGE, null,
